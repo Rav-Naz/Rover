@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-'''the art of doing nothing'''
 
 import ev3_dc as ev3
 import sensors
@@ -10,5 +9,5 @@ my_ev3 = ev3.EV3(
 )
 my_ev3.verbosity = 1
 my_ev3.sync_mode = ev3.SYNC
-opticsensor = sensors.UltrasonicSensor
-opticsensor.GetDistanceInCm(4, 0, my_ev3)  
+opticsensor = sensors.EV3Sensors.GyroSensor(my_ev3, 4, 0)
+print(opticsensor.GetRateAndAngle())
