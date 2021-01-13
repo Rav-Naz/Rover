@@ -9,17 +9,15 @@ import time
 
 ctrCmd = ['asd', 'asdg'] #komendy do sterowania 
 
-hostName = '127.0.0.1'
+hostName = '127.0.0.1' 
 localIP     = '127.0.0.1'
 localPort   = 8080
 bufferSize  = 1024
 
-#socket.getaddrinfo('127.0.0.1', 8080)
-
 tcpSerSock = socket(AF_INET,SOCK_STREAM)
 # close port when process exits:
 tcpSerSock.setsockopt(SOL_SOCKET, SO_REUSEADDR, 1)
-tcpSerSock.bind(('127.0.0.1',1234)) #poprawic
+tcpSerSock.bind((hostName,bufferSize))
 
 tcpSerSock.listen(5)
 print ("Waiting for a connecting client...")
