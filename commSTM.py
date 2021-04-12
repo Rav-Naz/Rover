@@ -1,7 +1,7 @@
 #comunication RPI->STM
 #send information via I2C
 #RPI Master STM Slave
-
+'''
 from smbus2 import SMBus
 import time
 
@@ -36,3 +36,15 @@ while(True):
     print("sending")
     writeData("test_dluzszy1234")
     time.sleep(5)
+'''
+
+#comunication RPI->STM#send information via UART
+
+    
+import serial
+import time
+
+ser = serial.Serial ("/dev/ttyS0", 9600)    #Open port with baud rate
+while True:
+    #sending frame
+    ser.write("#9_mGo_"+pwm+"_" + time1 + "\r\n")
